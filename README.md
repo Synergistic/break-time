@@ -15,3 +15,6 @@ more work to do.
   - Proper alarm sound
   - Ability to change alarm sound?
   - Figure out how to get it packaged for various platforms
+
+
+ .inspiration: http://www.aicr.org/assets/docs/pdf/education/Make-Time-Break-Time-Infographic-FINAL.pdf
