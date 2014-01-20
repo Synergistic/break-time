@@ -1,0 +1,140 @@
+#/usr/bin/kivy
+
+<BreakWidget>:
+	workTime: work_time
+	breakTime: break_time
+
+	BoxLayout:
+		orientation: 'vertical'
+		
+		FloatLayout:
+			size_hint: (1, 1.5)
+			
+            ProgressBar:
+                value: root.progress
+                size_hint_y: None
+				size_hint_x: 0.85
+                height: 50
+	
+				pos_hint: { 'center_x': 0.5, 'center_y': 0.85 }
+				
+			Label:
+				font_size: 120
+				text: root.timer
+				pos_hint: { 'center_x': 0.5, 'center_y': 0.6 }
+				
+			Label:
+				font_size: 25
+				text: root.units
+				pos_hint: { 'center_x': 0.5, 'center_y': 0.4 }
+				
+			Label:
+				text: root.message
+				font_size: 35
+				pos_hint: { 'center_x': 0.5, 'center_y': 0.2 }
+			
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: (1, 0.35)
+			
+			Label:
+				size_hint: ( 0.15, 1 )
+				
+			Button:
+				text: 'Begin Break'
+				on_release: root.startBreak()
+				
+			Button:
+				text: 'Begin Work'
+				on_release: root.startWork()
+				
+			Label:
+				size_hint: ( 0.15, 1 )	
+
+		Label:
+			size_hint: ( 1, 0.05 )
+			
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: ( 1, 0.15)
+			
+			Label:
+				size_hint: ( 0.15, 1 )	
+				
+		
+			Label:
+				text: 'Break:'
+				font_size: 16
+				
+			TextInput:
+				id: break_time
+				size_hint: ( 0.6, 0.88 )
+				pos_hint: { 'center_y': 0.5, 'center_x': 0.1 }
+				
+			Label:
+				text: 'minutes'		
+				font_size: 12	
+			
+			Label:
+				text: 'Work:'
+				font_size: 16
+				
+				
+			TextInput:
+				id: work_time
+				size_hint: ( 0.6, 0.88 )
+				pos_hint: { 'center_y': 0.5 }
+			
+			Label:
+				text: 'minutes'	
+				font_size: 12
+				
+			Label:
+				size_hint: ( 0.1, 1 )	
+		
+		Label:
+			size_hint: ( 1, 0.05 )
+		
+		BoxLayout:
+			size_hint: (0.75, 0.2)
+			orientation: 'horizontal'
+			
+			Label:
+				size_hint: ( 0.3, 1 )	
+				
+			Switch:
+				active: root.sound
+				on_active: root.sound = not root.sound
+
+			Label:
+				text: 'Alarm Sounds'
+				font_size: 20
+				
+		Label:
+			size_hint: ( 1, 0.05 )	
+			
+		BoxLayout:
+			orientation: 'horizontal'
+			size_hint: ( 1, 0.35 )
+			
+			Label:
+				size_hint: ( 0.3, 1 )
+			
+			Button:
+				pos_hint: { 'center_y': 0.5 }
+				text: 'Reset\nTimer'
+				on_release: root.reset()
+				
+			Button:
+				pos_hint: { 'center_y': 0.5, 'center_x': 0 }
+				text: root.pauseResume
+				on_release: root.pauseTimer()
+			
+			Label:
+				size_hint: ( 0.3, 1 )
+		Image:
+			size_hint: ( 1, 0.2 )
+			source: 'separator_top.png'
+			
+
+			
